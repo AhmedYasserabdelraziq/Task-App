@@ -3,17 +3,14 @@ import 'package:task_test/core/utils/colors.dart';
 
 import '../../../core/utils/common_functions.dart';
 import '../../../core/widget/app_buttons.dart';
+import '../model/swiper_model.dart';
 
 class ContentCard extends StatelessWidget {
-  final String titleServices;
-  final String titleButton;
-  final String imgOfServices;
+  final SwiperModel dataOfSwiper;
 
   const ContentCard({
     super.key,
-    required this.titleServices,
-    required this.titleButton,
-    required this.imgOfServices,
+    required this.dataOfSwiper,
   });
 
   @override
@@ -32,18 +29,18 @@ class ContentCard extends StatelessWidget {
                 SizedBox(
                   width: 200,
                   child: Text(
-                    titleServices,
+                    dataOfSwiper.titleServices,
                     style: const TextStyle(
                         fontSize: 18, fontWeight: FontWeight.w500),
                   ),
                 ),
                 heightSpace(16),
-                primaryButton(titleButton),
+                primaryButton(dataOfSwiper.titleButton),
               ],
             ),
           ),
           Expanded(
-            child: Image.asset(imgOfServices),
+            child: Image.asset(dataOfSwiper.imgOfServices),
           ),
         ],
       ),
