@@ -3,8 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-import '../utils/resources.dart';
-import '../utils/status.dart';
+import '../core/utils/status.dart';
 
 
 class ApiService {
