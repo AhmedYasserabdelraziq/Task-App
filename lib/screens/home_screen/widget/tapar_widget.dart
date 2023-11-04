@@ -3,7 +3,6 @@ import 'package:task_test/screens/home_screen/view_model/home_screen_viewmodel.d
 
 import '../../../core/utils/colors.dart';
 import '../../../core/utils/common_functions.dart';
-import '../view/home_screen.dart';
 
 class TapBarWidget extends StatelessWidget {
   final TabController controller;
@@ -54,14 +53,14 @@ Widget createTab(String text, bool isSelected) {
 }
 
 class TabBarViewWidget extends StatelessWidget {
+  final TabController controller;
+  final HomeScreenViewModel viewModel;
+
   const TabBarViewWidget({
     super.key,
     required this.controller,
-    required this.widget,
+    required this.viewModel,
   });
-
-  final TabController controller;
-  final HomeView widget;
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +89,7 @@ class TabBarViewWidget extends StatelessWidget {
             ),
             Expanded(
               child: ListView.builder(
-                  itemCount: widget.viewModel.categoriesName.length,
+                  itemCount: viewModel.myPlaceholder.length,
                   itemBuilder: (ctx, index) {
                     return Column(
                       children: [
@@ -104,10 +103,17 @@ class TabBarViewWidget extends StatelessWidget {
                           color: Theme.of(context).colorScheme.primary,
                           elevation: .3,
                           child: ListTile(
-                            leading: Image.asset(
-                              widget.viewModel.categoriesIcons[index],
+                            leading: Text(
+                              viewModel.myPlaceholder[index].id.toString(),
+                              style: const TextStyle(
+                                fontSize: 16,
+                              ),
                             ),
-                            title: Text(widget.viewModel.categoriesName[index]),
+                            title: Text(
+                              viewModel.myPlaceholder[index].name.toString(),
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20),
+                            ),
                             trailing: const Icon(Icons.arrow_forward),
                           ),
                         ),
