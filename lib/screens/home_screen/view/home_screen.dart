@@ -40,6 +40,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    widget.viewModel.getPlaceHolder();
     controller = TabController(length: 3, vsync: this);
   }
 
@@ -153,7 +154,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                   Expanded(
                     child: TabBarViewWidget(
                       controller: controller,
-                      widget: widget,
+                      viewModel: widget.viewModel,
                     ),
                   )
                 ],
