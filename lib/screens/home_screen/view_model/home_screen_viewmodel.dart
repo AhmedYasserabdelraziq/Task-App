@@ -30,20 +30,6 @@ class HomeScreenViewModel extends ChangeNotifier {
       imgOfServices: 'assets/images/card_img.png',
     ),
   ];
-  List categoriesName = [
-    'Constructions',
-    'Insurances',
-    'Legal',
-    'Buy & Sell',
-    'Accounting Services',
-  ];
-  List categoriesIcons = [
-    'assets/icons/construction_icon.png',
-    'assets/icons/instruction.png',
-    'assets/icons/legal_icon.png',
-    'assets/icons/buy_sell.png',
-    'assets/icons/accounting.png',
-  ];
 
   void getPlaceHolder() async {
     var resource = await apiService.getMyPlaceHolder();
