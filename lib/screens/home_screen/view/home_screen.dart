@@ -5,9 +5,9 @@ import 'package:task_test/screens/home_screen/view_model/home_screen_viewmodel.d
 
 import '../../../core/utils/colors.dart';
 import '../../../core/utils/common_functions.dart';
-import '../widget/bottom_Nav_bar.dart';
+import '../widget/bottom_nav_bar.dart';
 import '../widget/card_content.dart';
-import '../widget/pagination_builder.dart';
+import '../widget/dots_indicator_widget.dart';
 import '../widget/tapar_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -118,14 +118,11 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                         ),
                       );
                     },
-                    pagination: SwiperPagination(
-                      builder: CustomPaginationBuilder(
-                        activeSize: const Size(25, 6),
-                        size: const Size(6, 6),
-                        color: AppColors.primary,
-                      ),
-                    ),
                   ),
+                ),
+                heightSpace(10),
+                Center(
+                  child: DotsIndicatorWidget(widget: widget),
                 ),
                 heightSpace(16),
               ],
@@ -153,35 +150,21 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                     ),
                   ),
                   heightSpace(16),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Categories View',
-                        style: TextStyle(
-                          color: AppColors.blackColor,
-                        ),
-                      ),
-                      Text(
-                        'see all',
-                        style: TextStyle(
-                            color: AppColors.lightGrey,
-                            decoration: TextDecoration.underline),
-                      ),
-                    ],
-                  ),
-                  // ListView.builder(itemBuilder: (ctx,index){
-                  //   return Card(
-                  //     child: ListTile(leading: ,),
-                  //   )
-                  //})
+                  Expanded(
+                    child: TabBarViewWidget(
+                      controller: controller,
+                      widget: widget,
+                    ),
+                  )
                 ],
               ),
             ),
           ),
         ],
       ),
-      bottomNavigationBar: const BottomNavBar(),
+      bottomNavigationBar: BottomNavBar(
+        viewModel: widget.viewModel,
+      ),
     );
   }
 }

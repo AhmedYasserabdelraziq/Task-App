@@ -16,7 +16,7 @@ class ContentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(bottom: 26),
+      padding: const EdgeInsets.only(bottom: 8),
       color: AppColors.lightRed,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,

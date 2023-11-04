@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:task_test/screens/home_screen/view_model/home_screen_viewmodel.dart';
 
 import '../../../core/utils/colors.dart';
+import '../../../core/utils/common_functions.dart';
+import '../view/home_screen.dart';
 
 class TapBarWidget extends StatelessWidget {
   final TabController controller;
@@ -49,4 +51,94 @@ Widget createTab(String text, bool isSelected) {
       style: TextStyle(color: isSelected ? Colors.white : Colors.black),
     ),
   );
+}
+
+class TabBarViewWidget extends StatelessWidget {
+  const TabBarViewWidget({
+    super.key,
+    required this.controller,
+    required this.widget,
+  });
+
+  final TabController controller;
+  final HomeView widget;
+
+  @override
+  Widget build(BuildContext context) {
+    return TabBarView(
+      controller: controller,
+      physics: const NeverScrollableScrollPhysics(),
+      children: [
+        Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Categories View',
+                  style: TextStyle(
+                    color: AppColors.blackColor,
+                  ),
+                ),
+                Text(
+                  'see all',
+                  style: TextStyle(
+                      color: AppColors.lightGrey,
+                      decoration: TextDecoration.underline),
+                ),
+              ],
+            ),
+            Expanded(
+              child: ListView.builder(
+                  itemCount: widget.viewModel.categoriesName.length,
+                  itemBuilder: (ctx, index) {
+                    return Column(
+                      children: [
+                        Card(
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(12),
+                              bottomRight: Radius.circular(12),
+                            ),
+                          ),
+                          color: Theme.of(context).colorScheme.primary,
+                          elevation: .3,
+                          child: ListTile(
+                            leading: Image.asset(
+                              widget.viewModel.categoriesIcons[index],
+                            ),
+                            title: Text(widget.viewModel.categoriesName[index]),
+                            trailing: const Icon(Icons.arrow_forward),
+                          ),
+                        ),
+                        heightSpace(8),
+                      ],
+                    );
+                  }),
+            ),
+          ],
+        ),
+        const Center(child: Text('Services')),
+        SingleChildScrollView(
+          child: Column(
+            children: [
+              Image.asset('assets/images/not_found.png'),
+              const Text(
+                'No results found',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
+              Text(
+                'you can place your needed orders to let serve you.',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: AppColors.lightGrey,
+                  fontSize: 25,
+                ),
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
 }
