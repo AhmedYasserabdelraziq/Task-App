@@ -1,9 +1,8 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 import '../model/swiper_model.dart';
 
 class HomeScreenViewModel extends ChangeNotifier {
-  final controller = PageController();
   int currentIndex = 0;
   List<SwiperModel> dataOfSwiper = [
     SwiperModel(
@@ -25,6 +24,10 @@ class HomeScreenViewModel extends ChangeNotifier {
 
   void currentIndexSwiper(int index) {
     currentIndex = index;
+    notifyListeners();
+  }
+
+  void refresh() {
     notifyListeners();
   }
 }
