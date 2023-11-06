@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_test/core/utils/status.dart';
-import 'package:task_test/screens/home_screen/model/place_holder_model.dart';
+import 'package:task_test/screens/home_screen/model/user_model.dart';
 import 'package:task_test/services/api_service.dart';
 
 import '../model/swiper_model.dart';

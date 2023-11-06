@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:task_test/screens/home_screen/model/place_holder_model.dart';
+import 'package:task_test/screens/home_screen/model/user_model.dart';
 
 import '../core/utils/resources.dart';
 import '../core/utils/status.dart';
