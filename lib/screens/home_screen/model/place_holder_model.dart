@@ -1,4 +1,4 @@
-class PlaceHolderModel {
+class UserModel {
   int? id;
   String? name;
   String? username;
@@ -8,7 +8,7 @@ class PlaceHolderModel {
   String? website;
   Company? company;
 
-  PlaceHolderModel({
+  UserModel({
     this.id,
     this.name,
     this.username,
@@ -19,7 +19,7 @@ class PlaceHolderModel {
     this.company,
   });
 
-  factory PlaceHolderModel.fromJson(Map<String, dynamic> json) => PlaceHolderModel(
+  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
         id: json["id"],
         name: json["name"],
         username: json["username"],

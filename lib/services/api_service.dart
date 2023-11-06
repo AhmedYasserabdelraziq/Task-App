@@ -21,14 +21,14 @@ class ApiService {
     ));
   }
 
-  Future<Resource<List<PlaceHolderModel>>> getMyPlaceHolder() async {
+  Future<Resource<List<UserModel>>> getMyUsers() async {
     try {
       var response = await dio.get("${baseUrl}users");
-      List<PlaceHolderModel> myPlaceHolder = [];
+      List<UserModel> myUsers = [];
       for (var item in response.data) {
-        myPlaceHolder.add(PlaceHolderModel.fromJson(item));
+        myUsers.add(UserModel.fromJson(item));
       }
-      return Resource(Status.SUCCESS, data: myPlaceHolder);
+      return Resource(Status.SUCCESS, data: myUsers);
     } catch (exception) {
       return Resource(Status.ERROR, errorMessage: exception.toString());
     }

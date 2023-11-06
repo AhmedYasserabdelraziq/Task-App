@@ -40,7 +40,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    widget.viewModel.getPlaceHolder();
+    widget.viewModel.getUsers();
     controller = TabController(length: 3, vsync: this);
   }
 
@@ -107,13 +107,13 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                   height: 170,
                   child: Swiper(
                     onIndexChanged: (index) {
-                      widget.viewModel.currentIndexSwiper(index);
+                      widget.viewModel.currentSwiperNum(index);
                     },
                     itemCount: 3,
                     itemBuilder: (context, index) {
                       return Opacity(
                         opacity:
-                            widget.viewModel.currentIndex == index ? 1.0 : 0.5,
+                            widget.viewModel.currentSwiperIndex == index ? 1.0 : 0.5,
                         child: ContentCard(
                           dataOfSwiper: widget.viewModel.dataOfSwiper[index],
                         ),
