@@ -16,7 +16,7 @@ class DotsIndicatorWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return DotsIndicator(
       dotsCount: 3,
-      position: widget.viewModel.currentIndex,
+      position: widget.viewModel.currentSwiperIndex,
       decorator: DotsDecorator(
         spacing: const EdgeInsets.all(2),
         size: const Size(6, 6),

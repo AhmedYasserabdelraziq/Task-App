@@ -10,9 +10,9 @@ class HomeScreenViewModel extends ChangeNotifier {
 
   HomeScreenViewModel(this.apiService);
 
-  int currentIndex = 0;
-  var currentNum = 0;
-  List<PlaceHolderModel> myPlaceholder = [];
+  int currentSwiperIndex = 0;
+  var currentNavIndex = 0;
+  List<UserModel> myUsers = [];
   List<SwiperModel> dataOfSwiper = [
     SwiperModel(
       titleServices: "Multi-Services for Your Real Estate Needs",
@@ -31,21 +31,21 @@ class HomeScreenViewModel extends ChangeNotifier {
     ),
   ];
 
-  void getPlaceHolder() async {
-    var resource = await apiService.getMyPlaceHolder();
+  void getUsers() async {
+    var resource = await apiService.getMyUsers();
     if (resource.status == Status.SUCCESS) {
-      myPlaceholder = resource.data!;
+      myUsers = resource.data!;
       notifyListeners();
     }
   }
 
   void currentNavNum(int index) {
-    currentNum = index;
+    currentNavIndex = index;
     notifyListeners();
   }
 
-  void currentIndexSwiper(int index) {
-    currentIndex = index;
+  void currentSwiperNum(int index) {
+    currentSwiperIndex = index;
     notifyListeners();
   }
 

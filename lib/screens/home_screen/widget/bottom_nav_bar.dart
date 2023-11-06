@@ -17,7 +17,7 @@ class BottomNavBar extends StatelessWidget {
       elevation: 5,
       backgroundColor: AppColors.whiteColor,
       type: BottomNavigationBarType.fixed,
-      currentIndex: viewModel.currentNum,
+      currentIndex: viewModel.currentNavIndex,
       onTap: (index) {
         viewModel.currentNavNum(index);
       },
@@ -26,7 +26,7 @@ class BottomNavBar extends StatelessWidget {
       items: [
         BottomNavigationBarItem(
           icon: Image.asset(
-            color: viewModel.currentNum == 0
+            color: viewModel.currentNavIndex == 0
                 ? AppColors.primary
                 : AppColors.navBarDisableColor,
             scale: 1,
@@ -36,7 +36,7 @@ class BottomNavBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Image.asset(
-            color: viewModel.currentNum == 1
+            color: viewModel.currentNavIndex == 1
                 ? AppColors.primary
                 : AppColors.navBarDisableColor,
             scale: 1,
@@ -46,7 +46,7 @@ class BottomNavBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Image.asset(
-            color: viewModel.currentNum == 2
+            color: viewModel.currentNavIndex == 2
                 ? AppColors.primary
                 : AppColors.navBarDisableColor,
             scale: 1.5,
@@ -56,7 +56,7 @@ class BottomNavBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Image.asset(
-            color: viewModel.currentNum == 3
+            color: viewModel.currentNavIndex == 3
                 ? AppColors.primary
                 : AppColors.navBarDisableColor,
             scale: 1.5,

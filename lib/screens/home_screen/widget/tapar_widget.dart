@@ -89,7 +89,7 @@ class TabBarViewWidget extends StatelessWidget {
             ),
             Expanded(
               child: ListView.builder(
-                  itemCount: viewModel.myPlaceholder.length,
+                  itemCount: viewModel.myUsers.length,
                   itemBuilder: (ctx, index) {
                     return Column(
                       children: [
@@ -104,13 +104,13 @@ class TabBarViewWidget extends StatelessWidget {
                           elevation: .3,
                           child: ListTile(
                             leading: Text(
-                              viewModel.myPlaceholder[index].id.toString(),
+                              viewModel.myUsers[index].id.toString(),
                               style: const TextStyle(
                                 fontSize: 16,
                               ),
                             ),
                             title: Text(
-                              viewModel.myPlaceholder[index].name.toString(),
+                              viewModel.myUsers[index].name.toString(),
                               style: const TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
